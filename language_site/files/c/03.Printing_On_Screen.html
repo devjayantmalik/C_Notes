@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Printing on screen</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="Lecture_3_Printing_Message_0"></a>Lecture 3 (Printing Message)</h1>
+<h3><a id="Why_do_we_need_to_plan_a_c_program_1"></a>Why do we need to plan a c program?</h3>
+<pre><code>We program in C because we want computer to do some task for us.
+</code></pre>
+<h3><a id="How_do_we_program_in_C_3"></a>How do we program in C?</h3>
+<pre><code>    In order to program in c we have foolowing instructions :
+    1. Input Instructions (scanf)
+    2. Output Instructions (printf)
+    3. Conditional Instructions (while, if, for, loops)
+    4. Declarative Instructions (variables, pointers)
+</code></pre>
+<h3><a id="Input_Instructions__10"></a>Input Instructions :</h3>
+<pre><code>These instructions are required to take input from keyboard within our program.
+</code></pre>
+<h3><a id="Output_instructions__13"></a>Output instructions :</h3>
+<pre><code>These instructions are required to print output to standard output device, that is monitor.
+</code></pre>
+<h3><a id="Conditional_Instructions__16"></a>Conditional Instructions :</h3>
+<pre><code>These instructions are used to write repetition code and code that evaluates on conditions.
+</code></pre>
+<h3><a id="Declarative_Instructions__19"></a>Declarative Instructions :</h3>
+<pre><code>These instructions are used to reserve some memory in OS for our input.
+</code></pre>
+<blockquote>
+<p>Note : One tab equals 8 spaces.</p>
+</blockquote>
+<h3><a id="Structure_of_C_program__24"></a>Structure of C program :</h3>
+<pre><code>    header files
+    global varaiables
+
+    main function declaration 
+        {
+            body of program.
+        }
+</code></pre>
+<h3><a id="Example_of_C_program__33"></a>Example of C program :</h3>
+<pre><code class="language-c">        <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span> //header file</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{    <span class="hljs-comment">//main function declaration</span>
+
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello World"</span>);  <span class="hljs-comment">//print output on screen</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;       <span class="hljs-comment">//returns value back from function.</span>
+
+        }
+</code></pre>
+<h3><a id="Addition_in_printf__44"></a>Addition in printf :</h3>
+<pre><code>    // more than one string passed passed to printf 
+    // without commas will combine together to form a single string.
+</code></pre>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello"</span> <span class="hljs-string">"Jayant"</span> <span class="hljs-string">"Malik"</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+</code></pre>
+<h3><a id="Escape_Sequences_in_printf__54"></a>Escape Sequences in printf :</h3>
+<p>‘’’ Escape sequences are used to shift cursor position at specific location.’’’</p>
+<pre><code class="language-c">        <span class="hljs-comment">//escape sequences are used with backslash followed by specific letters.</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Jayant 1\n"</span>); <span class="hljs-comment">// prints a new line at end of text.</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Jayant 2\r"</span>); <span class="hljs-comment">// carriage return</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Jayant 3\b"</span>); <span class="hljs-comment">// backspace</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello Jayant 4\t"</span>); <span class="hljs-comment">// tab</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+</code></pre>
+<blockquote>
+<p>Note : Use manual of ANSI C for mote escape sequence characters.</p>
+</blockquote>
+<h3><a id="Example_of_new_line__69"></a>Example of new line :</h3>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">int</span> a=<span class="hljs-number">0</span>;  <span class="hljs-comment">// local variable</span>
+            <span class="hljs-keyword">while</span>(a&lt;=<span class="hljs-number">10</span>) {  <span class="hljs-comment">// while loop</span>
+                a++;    <span class="hljs-comment">// a = a+1</span>
+                <span class="hljs-built_in">printf</span>(<span class="hljs-string">"This is line no : %d\n"</span>, a);
+            }
+        }
+</code></pre>
+<h3><a id="Example_of_carriage_return_79"></a>Example of carriage return</h3>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;
+            <span class="hljs-comment">// in borland compiler use delay(milli_second) function </span>
+            <span class="hljs-comment">// to understand it better or use a higher value of x in loop.</span>
+            <span class="hljs-keyword">while</span>(x&lt;=<span class="hljs-number">100</span>){
+                x++;
+                <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\r"</span>,x);
+            }
+
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+</code></pre>
+<h3><a id="Example_of_Backspace_Escape_Sequence_Character__93"></a>Example of Backspace Escape Sequence Character :</h3>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello\b\b\b"</span>); <span class="hljs-comment">// shift cursor three position back.</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"AB"</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+</code></pre>
+<h3><a id="Lets_See_Borland_Compiler_Specific_Code_101"></a>Let’s See Borland Compiler Specific Code</h3>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            textcolor(<span class="hljs-number">10</span>);  <span class="hljs-comment">// sets text color</span>
+            textbackground(<span class="hljs-number">4</span>)   <span class="hljs-comment">// sets textbackground color\</span>
+            cprintf(<span class="hljs-string">"Hello in Color"</span>);  <span class="hljs-comment">// only works in borland</span>
+            delay(<span class="hljs-number">2000</span>); <span class="hljs-comment">//sets delay in milliseconds</span>
+            gotoxy(<span class="hljs-number">30</span>,<span class="hljs-number">13</span>); <span class="hljs-comment">// changes cursor position (col, row)</span>
+        }
+</code></pre>
+<h3><a id="Lets_Clear_the_Screen_111"></a>Let’s Clear the Screen</h3>
+<pre><code>clrscr is a function used to clear the screen  in DOS only.
+Think it as compiler specific code.
+</code></pre>
+<pre><code class="language-c">        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"India is great."</span>);
+            clrscr();
+        }
+</code></pre>
+
+</body></html>

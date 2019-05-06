@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+    <title>Built In Functions char type</title>
+    <style>@import "style.css"</style></head><body id="preview">
+<h1><a id="Working_On_Built_In_Functions__0"></a>Working On Built In Functions :</h1>
+<pre><code>we will discuss built in functions in c and how to create them yourself.
+</code></pre>
+<h2><a id="Character_Handling_ctypeh_3"></a>Character Handling &lt;ctype.h&gt;</h2>
+<h2><a id="Steps__5"></a>Steps :</h2>
+<pre><code>1. Create a program to list ascii values of all characters and not them down in table.
+2. Now use concept of ascii values to distinguish between different characters
+</code></pre>
+<h3><a id="Program_to_print_ascii_values_of_characters__9"></a>Program to print ascii values of characters :</h3>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">255</span>; i++){
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d | %c, "</span>, i, i);
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h3><a id="Observation_table__20"></a>Observation table :</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Character Type</th>
+<th>Ascii Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a - z</td>
+<td>97 - 122</td>
+</tr>
+<tr>
+<td>A - z</td>
+<td>65 - 90</td>
+</tr>
+<tr>
+<td>0 - 9</td>
+<td>48 - 57</td>
+</tr>
+<tr>
+<td>space</td>
+<td>32</td>
+</tr>
+<tr>
+<td>control</td>
+<td>0 - 31</td>
+</tr>
+<tr>
+<td>punctuation</td>
+<td>33 - 47, 58 - 64, 91 - 96, 123 -126</td>
+</tr>
+</tbody>
+</table>
+<h3><a id="Program_to_check_whether_a_character_is_lower_case_32"></a>Program to check whether a character is lower case</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">islower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">92</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">islower</span>(<span class="hljs-string">'a'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character a is lower or upper : %d\n"</span>,result);
+    
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+<h3><a id="Program_to_check_whether_a_character_is_alphabet_52"></a>Program to check whether a character is alphabet.</h3>
+<pre><code class="language-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isalpha</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">92</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">isalpha</span>(<span class="hljs-string">'a'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character a is alphabet or not : %d\n"</span>,result);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3><a id="Program_to_check_whether_a_character_is_upper_case_77"></a>Program to check whether a character is upper case</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">return</span> (character &gt;= <span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">isupper</span>(<span class="hljs-string">'A'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character a is uppercase or not: %d\n"</span>,result);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+<h3><a id="Program_to_check_whether_a_character_is_punctuation_character_95"></a>Program to check whether a character is punctuation character.</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ispunct</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(
+        (character &gt;= <span class="hljs-number">33</span> &amp;&amp; character &lt;= <span class="hljs-number">47</span>)    || 
+        (character &gt;= <span class="hljs-number">58</span> &amp;&amp; character &lt;= <span class="hljs-number">64</span>)    ||
+        (character &gt;= <span class="hljs-number">91</span> &amp;&amp; character &lt;= <span class="hljs-number">96</span>)    ||
+        (character &gt;= <span class="hljs-number">123</span> &amp;&amp; character &lt;= <span class="hljs-number">126</span>)
+      )
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">ispunct</span>(<span class="hljs-string">'!'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character a is punctuation or not: %d\n"</span>,result);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3><a id="Program_to_check_whether_a_character_is_control_character_123"></a>Program to check whether a character is control character.</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">iscntrl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">return</span> (character &gt;= <span class="hljs-number">0</span> &amp;&amp; character &lt;= <span class="hljs-number">31</span>) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">iscntrl</span>(<span class="hljs-string">'\0'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character \\0 is control character or not: %d\n"</span>,result);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3><a id="Program_to_convert_lower_case_character_to_upper_case_141"></a>Program to convert lower case character to upper case.</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">toupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+     <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">97</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> character - <span class="hljs-number">32</span>;
+    
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;=<span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> character;
+
+     <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'\0'</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">char</span> result = <span class="hljs-built_in">toupper</span>(<span class="hljs-string">'a'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character a in upper case is : %c\n"</span>,result);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3><a id="Program_to_convert_character_to_lower_case_166"></a>Program to convert character to lower case</h3>
+<pre><code class="language-c"><span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">tolower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">97</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> character;
+    
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;=<span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> character + <span class="hljs-number">32</span>;
+
+     <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'\0'</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">char</span> result = <span class="hljs-built_in">tolower</span>(<span class="hljs-string">'A'</span>);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"A in lower case is %c\n"</span>,result);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2><a id="Now_we_created_saveral_functions_and_learnt_how_they_are_made__Now_Lets_compare_our_functions_with_built_in_functions_187"></a>Now we created saveral functions and learnt how they are made ? Now, Let’s compare our functions with built in functions.</h2>
+<h1><a id="Some_reasons_behind_all_these_functions__189"></a>Some reasons behind all these functions :</h1>
+<pre><code>1. All functions take int as their formal argument because every character is a binary number that can be converted to any format as per requirement.
+2. All functions except toupper and tolower returns 0 for false and 1 for true as result.
+3. We used unsigned int in formal type of each function to prevent cyclic behaviour to some extent.
+</code></pre>
+<h1><a id="Creating_header_file_for_our_code__194"></a>Creating header file for our code :</h1>
+<pre><code class="language-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> __THROW <span class="hljs-string">'\0'</span>;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> __INVALID <span class="hljs-number">0</span>;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> cdecl <span class="hljs-title">toupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __THROW</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> cdecl <span class="hljs-title">tolower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __THROW</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> cdecl <span class="hljs-title">isalpha</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __INVALID</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> cdecl <span class="hljs-title">iscntrl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __INVALID</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> cdecl <span class="hljs-title">islower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __INVALID</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> cdecl <span class="hljs-title">isupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __INVALID</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> cdecl <span class="hljs-title">ispunct</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __letter)</span> __INVALID</span>;
+
+
+</code></pre>
+<h1><a id="Generating_dll_and_header_files_216"></a>Generating .dll and header files</h1>
+<pre><code>1. To generate dll files we need to create .obj files from our code.
+2. Code should be written without main function to generate .obj file
+3. You can use some IDE to generate .dll project for you(optional)
+</code></pre>
+<h3><a id="Program_file_with_all_code_without_main_becomes__221"></a>Program file with all code without main becomes :</h3>
+<pre><code class="language-c">
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">tolower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">97</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> character;
+    
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;=<span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> character + <span class="hljs-number">32</span>;
+
+     <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'\0'</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">toupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+     <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">97</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> character - <span class="hljs-number">32</span>;
+    
+     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;=<span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> character;
+
+     <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'\0'</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">iscntrl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">return</span> (character &gt;= <span class="hljs-number">0</span> &amp;&amp; character &lt;= <span class="hljs-number">31</span>) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ispunct</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(
+        (character &gt;= <span class="hljs-number">33</span> &amp;&amp; character &lt;= <span class="hljs-number">47</span>)    || 
+        (character &gt;= <span class="hljs-number">58</span> &amp;&amp; character &lt;= <span class="hljs-number">64</span>)    ||
+        (character &gt;= <span class="hljs-number">91</span> &amp;&amp; character &lt;= <span class="hljs-number">96</span>)    ||
+        (character &gt;= <span class="hljs-number">123</span> &amp;&amp; character &lt;= <span class="hljs-number">126</span>)
+      )
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isupper</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">return</span> (character &gt;= <span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isalpha</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">92</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">65</span> &amp;&amp; character &lt;= <span class="hljs-number">90</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">islower</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> character)</span></span>{
+    <span class="hljs-keyword">if</span>(character &gt;= <span class="hljs-number">92</span> &amp;&amp; character &lt;= <span class="hljs-number">122</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+</code></pre>
+<h3><a id="Now_Command_for_gcc_to_generate_obj_file_292"></a>Now Command for gcc to generate .obj file</h3>
+<h5><a id="Checking_for_errors_294"></a>Checking for errors</h5>
+<pre><code class="language-sh">    gcc -o output_file input_file
+</code></pre>
+<pre><code>you got an error right, this is because you cannot submit built in functions with same name as yours.
+to solve this issue just change name of your function 
+tolower() ---&gt; tolowercase()
+and 
+toupper() ---&gt; touppercase()
+</code></pre>
+<h5><a id="Generating_object_file_304"></a>Generating object file</h5>
+<pre><code class="language-sh">    gcc -c input_file
+</code></pre>
+<h5><a id="generating_dll_309"></a>generating dll</h5>
+<pre><code class="language-sh">    gcc -shared -o output.dll input_file.o
+</code></pre>
+<h5><a id="Now_you_can_copy_header_file_created_with_h_file_to_usrincludefile_nameh_314"></a>Now you can copy header file created with .h file to /usr/include/file_name.h</h5>
+<h2><a id="Testing_everything__317"></a>Testing everything :</h2>
+<pre><code>1. create a file.c
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+
+        <span class="hljs-keyword">int</span> result = <span class="hljs-built_in">isupper</span>(<span class="hljs-string">'a'</span>);
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Character in upper case is %d\n"</span>,result);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<pre><code>2. Compile and generate executable
+</code></pre>
+<pre><code class="language-sh">    gcc -o <span class="hljs-built_in">test</span> input_file.c -L file_name.dll   
+</code></pre>
+<pre><code>3. Run program
+</code></pre>
+<pre><code class="language-sh">    ./<span class="hljs-built_in">test</span>
+</code></pre>
+
+</body></html>

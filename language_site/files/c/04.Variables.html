@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Variables</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="Variables__0"></a>Variables :</h1>
+<pre><code>variables are place holders in RAM, which provides us ability to store data.
+</code></pre>
+<h2><a id="Rules_for_Variables__3"></a>Rules for Variables :</h2>
+<pre><code>1. Variable Names could contain letters, digits and underscore character.
+2. Variable name should start with a letter or underscore
+3. variable name should not contain spaces.
+4. Variable name length should be atleast one character.
+5. Variable name should not contain any special character except underscore.
+</code></pre>
+<blockquote>
+<p>Note: In case of GCC compiler $ symbol is allowed.</p>
+</blockquote>
+<h2><a id="Types_of_Variables__12"></a>Types of Variables :</h2>
+<pre><code>1. Global Variable / Public Variables
+2. Local Variable / Private Variables
+</code></pre>
+<h2><a id="Syntax_of_declaring_variable__16"></a>Syntax of declaring variable :</h2>
+<pre><code>datatype variable_name;
+datatype variable_name = value;
+</code></pre>
+<h2><a id="Examples_of_variables__20"></a>Examples of variables :</h2>
+<pre><code class="language-c">    <span class="hljs-keyword">int</span> marks = <span class="hljs-number">10</span>;
+    
+    <span class="hljs-keyword">int</span> age;    <span class="hljs-comment">// age declared without any value.</span>
+    age =<span class="hljs-number">10</span>;    <span class="hljs-comment">// age assigned a value.</span>
+</code></pre>
+<h2><a id="Local_Variables__27"></a>Local Variables :</h2>
+<pre><code>The variables which are present within a function are called as local variables.
+</code></pre>
+<h2><a id="Examples_of_Local_Variables__30"></a>Examples of Local Variables :</h2>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">//local scope variables</span>
+        <span class="hljs-keyword">int</span> age = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">char</span> grade = <span class="hljs-string">'A'</span>;
+        <span class="hljs-keyword">float</span> pi = <span class="hljs-number">3.14f</span>;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Examples_of_Global_Variables__41"></a>Examples of Global Variables :</h2>
+<pre><code class="language-c">    <span class="hljs-keyword">float</span> PI = <span class="hljs-number">3.14</span>;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Value of PI is %f"</span>,PI);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Scopes_of_Variables__49"></a>Scopes of Variables :</h2>
+<pre><code>1. Public Scope - means any part of program is able to use them.
+2. Private Scope - means only specific part of Program is able to use them.
+</code></pre>
+<h2><a id="You_Tell_me_53"></a>You Tell me…</h2>
+<pre><code>Which type of variable according to you has public scope?
+Which type of variable according to you has private scope?
+</code></pre>
+<h2><a id="Basic_Conventions_For_Global_Variables__57"></a>Basic Conventions For Global Variables :</h2>
+<p>Conventions are optional, they are rules followed by most of developers around the world. You may choose to implement them in your programs to keep seperate of concerns.</p>
+<pre><code>1. Name your variable in UPPER CASE.
+2. Declare your variables with pre allocated value.
+3. In case you do not know what value the variable will hold then, provide a suitable value to prevent garbage value.
+4. Keep length of characters in variable name to be minimum.
+5. Variable name should not exceed 50 characters.
+6. Variable name should be descriptive.
+</code></pre>
+<h2><a id="Basic_Conventions_for_Local_Variables__67"></a>Basic Conventions for Local Variables :</h2>
+<pre><code>1. Name you variable in PASCAL CASE.
+2. Declare your variable with default value to prevent allocation of garbage value.
+3. Variable name should be descriptive.
+</code></pre>
+<h2><a id="On_program_execution__72"></a>On program execution :</h2>
+<pre><code>1. OS will create account of Program in STACK.
+2. OS will allocate some space in RAM.
+3. OS will generate address of allocation unit.
+4. OS will store address of variable in STACK.
+5. STACK Exists in RAM itself somewhere.
+</code></pre>
+<h2><a id="Stack__79"></a>Stack :</h2>
+<pre><code>1. Stack is a space in RAM created by OS to keep account of program and its variables.
+2. Stack helps OS keep record of RAM bits used by saveral programs during concurrent operations.
+3. Makes Multitasking possible.
+</code></pre>
+<h2><a id="Picture_of_Program_Execution__84"></a>Picture of Program Execution :</h2>
+<h3><a id="_85"></a>$$$</h3>
+<h4><a id="Program_asks__OS_allocate_me_some_memory_86"></a>Program <em>asks</em> —&gt; OS <em>allocate me some memory</em></h4>
+<h4><a id="OS_Creates_Account_of_Program__OS_Allocates_Space_in_RAM_87"></a>OS <em>Creates Account of Program</em> —&gt; OS <em>Allocates Space in RAM</em></h4>
+<h4><a id="OS_Stores_Address_of_Memory_in_STACK_88"></a>OS <em>Stores Address of Memory in STACK</em></h4>
+<h4><a id="Program_Asks_OS_to_store_value_in_variable_89"></a>Program <em>Asks OS to store value in variable</em></h4>
+<h4><a id="OS_fetches_Address_of_variable_from_stack_90"></a>OS <em>fetches Address of variable from stack.</em></h4>
+<h4><a id="OS_fetches_data_of_variable_stored_at_that_address_91"></a>OS <em>fetches data of variable stored at that address</em></h4>
+<h4><a id="OS_provides_program_data_in_binary_form_92"></a>OS <em>provides program data in binary form</em></h4>
+<h4><a id="Program_converts_data_as_required_93"></a>Program <em>converts data as required</em></h4>
+<h3><a id="_94"></a>$$$</h3>
+<h2><a id="Why_were_local_variables_developed__96"></a>Why were local variables developed ?</h2>
+<p>Let’s see source code of some program to understand this,</p>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Multiply</span><span class="hljs-params">(<span class="hljs-keyword">int</span> first, <span class="hljs-keyword">int</span> second)</span></span>{
+        <span class="hljs-keyword">return</span> first * second;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+        <span class="hljs-keyword">return</span> a + b;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"a = %d and b = %d"</span>,a,b);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<pre><code>In above situation,
+1. Our program has 3 functions.
+2. But None of Sum and Multiply functions are used in program.
+3. Our Sum() function has two local variables a and b.
+4. Our main function prints values of a and b on execution.
+</code></pre>
+<blockquote>
+<p>We notice that, in our situation all three variables are local.<br>
+Let’s Execute the program and see what happens :<br>
+Result : We got an error that a and b are not defined.</p>
+</blockquote>
+<pre><code>It means a and b variables are not allocated any space in RAM by OS.
+</code></pre>
+<blockquote>
+<p>So, Local variables prevent unnecessary space allocation in RAM. and this is the reason, why local variables were created.</p>
+</blockquote>
+<h2><a id="Why_were_global_variables_developed__123"></a>Why were global variables developed ?</h2>
+<p>Let’s again see source code of some program to understand this,</p>
+<pre><code class="language-c">    <span class="hljs-keyword">float</span> PI =<span class="hljs-number">3.14</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">float</span> <span class="hljs-title">AreaOfCircle</span><span class="hljs-params">(<span class="hljs-keyword">float</span> radius)</span></span>{
+        <span class="hljs-keyword">return</span> PI * (radius * radius);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Value of PI is %f"</span>,PI);
+
+        <span class="hljs-keyword">float</span> area = AreaOfCircle(<span class="hljs-number">23.4f</span>);
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Area of Circle is %f"</span>,area);
+    }
+</code></pre>
+<pre><code>In above situation :
+1. We have a global variable PI.
+2. We have two functions that uses value of PI.
+</code></pre>
+<blockquote>
+<p>In above situation we notice that PI is a global variable.</p>
+</blockquote>
+<h4><a id="Conclusion__145"></a>Conclusion :</h4>
+<blockquote>
+<p>So global variables to created to avoid duplicate variable declaration. This makes OS Fast and Efficient.</p>
+</blockquote>
+<h2><a id="Conclusions_of_why_variables_were_created__148"></a>Conclusions of why variables were created :</h2>
+<pre><code>1. Prevents duplicate code.
+2. Makes system faster.
+3. Prevents unnecessary usage of RAM.
+4. Reduces overall software size.
+</code></pre>
+
+</body></html>

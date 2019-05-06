@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Functions</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="Functions_in_C__0"></a>Functions in C :</h1>
+<pre><code>1. functions are containers that help reduce duplicacy of code
+2. make code reusable at different positions in our program.
+3. Keeps program modular and seperates logic of program in seperate blocks.
+</code></pre>
+<h1><a id="Types_of_Functions__5"></a>Types of Functions :</h1>
+<pre><code>1. User defined functions.
+2. Built in functions.
+</code></pre>
+<blockquote>
+<p>Note : In reality in c programming only user defined functions exist but for writing in exams if you are in india, then write both types.</p>
+</blockquote>
+<h1><a id="User_Defined_Functions__11"></a>User Defined Functions :</h1>
+<pre><code>These functions are defined by developer itself. 
+example : 
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+        <span class="hljs-keyword">return</span> (a&gt;b) ? a : b;
+    }
+</code></pre>
+<h1><a id="Built_in_Functions__19"></a>Built in Functions :</h1>
+<pre><code>These are the functions defined by creator of c and are used by developers.
+example : 
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">//built in function</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"i am built in function of c"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Function_Invokation__29"></a>Function Invokation :</h2>
+<pre><code>Steps to call a function in our program is called function invocation.
+example: 
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        max(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// invoked max function</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Nested_Function__38"></a>Nested Function :</h2>
+<pre><code>1. Nesting of functions is possible in c.
+2. Nested functions are functions within functions.
+</code></pre>
+<h2><a id="Rules_for_Functions__42"></a>Rules for Functions :</h2>
+<pre><code>1. Variable name rules are same for function naming rules.
+2. Function Arguments are optional.
+3. Function return type could be void.
+4. By default a function in c returns int as datatype.
+5. return keyword is used to send response back from function.
+</code></pre>
+<h2><a id="Syntax_of_Function__49"></a>Syntax of Function :</h2>
+<pre><code>return_type function_name( arguments )
+{
+    // body of function.
+}
+</code></pre>
+<h2><a id="Examples_of_Function__54"></a>Examples of Function :</h2>
+<pre><code>//function do not return any value.
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_letters</span> <span class="hljs-params">(<span class="hljs-keyword">char</span> c)</span>
+    </span>{
+        <span class="hljs-keyword">for</span>( <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">10</span>; i++)
+        {
+             <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%c\n"</span>,c);
+        } 
+    }
+    
+    <span class="hljs-comment">// function return int as return type.</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">( <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b )</span>
+    </span>{
+        <span class="hljs-keyword">return</span> (a&gt;b) ? a : b ;
+    }
+
+    <span class="hljs-comment">// function with no arguments</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">drawcircle</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"I am drawing circle\n"</span>);
+        circle(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>,<span class="hljs-number">30</span>);
+    }
+</code></pre>
+<h2><a id="Function_Arguments__79"></a>Function Arguments :</h2>
+<pre><code>1. Actual Arguments
+2. Formal Arguments
+</code></pre>
+<h2><a id="Formal_Arguments__83"></a>Formal Arguments :</h2>
+<pre><code>these are the declarations within user defined functions.
+example :
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">( <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b )</span> <span class="hljs-comment">// formal arguments.</span>
+    </span>{
+        <span class="hljs-keyword">return</span> ( a &gt; b ) ? a : b ;
+    }
+</code></pre>
+<h2><a id="Actual_Arguments__92"></a>Actual Arguments :</h2>
+<pre><code>these are values passed during invocation of function.
+example :
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        max( <span class="hljs-number">2</span>, <span class="hljs-number">4</span> ); <span class="hljs-comment">// actual arguments.</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Expression_Evaluation_in_Function_Invocation_101"></a>Expression Evaluation in Function Invocation:</h2>
+<pre><code>1. Expressions passed in functions are always evaluated form right to left.
+example :
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">( <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> a + b ;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">int</span> result = sum ( <span class="hljs-built_in">printf</span>(<span class="hljs-string">"abc"</span>); , <span class="hljs-built_in">printf</span>(<span class="hljs-string">"def"</span>) );
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\tResult is %d "</span>, result );
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<blockquote>
+<h4><a id="Output_will_be___defabc______Result_is_6_119"></a>Output will be  : defabc      Result is 6</h4>
+</blockquote>
+<h2><a id="Expression_evaluation_in_Function_Definition__121"></a>Expression evaluation in Function Definition :</h2>
+<pre><code>In case of function definition values are evaluated from left to right.
+example :
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">multiply</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> a * b ;
+    }
+</code></pre>
+<h2><a id="Some_practice_for_functions__130"></a>Some practice for functions :</h2>
+<h4><a id="Find_Output_of_program__131"></a>Find Output of program :</h4>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span> <span class="hljs-params">( <span class="hljs-keyword">int</span> a , <span class="hljs-keyword">int</span> b )</span>
+    </span>{
+        <span class="hljs-keyword">return</span> ( a &gt; b ) ? a : b ;
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">int</span> number = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">int</span> result = max ( ++a , ++a ); <span class="hljs-comment">// result = ?</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h4><a id="Find_Max_of_four_numbers__145"></a>Find Max of four numbers :</h4>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span> <span class="hljs-params">( <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b )</span> 
+    </span>{
+        <span class="hljs-keyword">return</span> ( a &gt; b ) ? a : b ;
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-keyword">int</span> first = <span class="hljs-number">10</span>;
+        <span class="hljs-keyword">int</span> second = <span class="hljs-number">12</span>; 
+        <span class="hljs-keyword">int</span> third = <span class="hljs-number">20</span>; 
+        <span class="hljs-keyword">int</span> fourth = <span class="hljs-number">22</span>;
+        
+        <span class="hljs-comment">// code for max.</span>
+        <span class="hljs-keyword">int</span> result = max( max(first, second) , max(third, fourth) ) ;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">" Maximum value is %d \n"</span>, result ) ;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h4><a id="Program_to_print_letters_in_increasing_order_165"></a>Program to print letters in increasing order.</h4>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pattern</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c, <span class="hljs-keyword">int</span> times)</span>
+    </span>{   
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= times; i++){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j =<span class="hljs-number">0</span>; j &lt;= i; j++){
+               <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%c"</span>,c);
+            }
+           <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+        }
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+    </span>{
+        pattern(<span class="hljs-string">'$'</span>, <span class="hljs-number">5</span>);
+        pattern(<span class="hljs-string">'Û'</span>, <span class="hljs-number">7</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+
+</code></pre>
+
+</body></html>

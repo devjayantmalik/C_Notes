@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><title>Facts related to functions :.md</title>
+	<style>@import "styles/01_intro_style.css"</style>
+</head><body id="preview">
+<h1><a id="Facts_related_to_functions__0"></a>Facts related to functions :</h1>
+<pre><code>1. In a function arguments are always passed by value. Pass by reference is simulated by c by passing pointer values.
+
+2. Functions can return any type except arrays and functions. This limitation can be overcome by returning pointer to an array or pointer to function.
+
+3. Name of the function is actually a pointer variable to the function
+    example :
+</code></pre>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%u"</span>,main); <span class="hljs-comment">// prints address of main</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<pre><code>4. Declaration of your user defined function should be before main function.
+
+5. In c three continuous dots is known as ellipsis which is variable number of arguments of function. The values to parameters are assigned one by one.
+    example:
+</code></pre>
+<pre><code class="language-c">    
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span> </span>
+  
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dynamic</span><span class="hljs-params">(<span class="hljs-keyword">int</span> s, ...)</span> 
+</span>{ 
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, s); 
+} 
+  
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
+</span>{ 
+    dynamic(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>); 
+    dynamic(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>); 
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; 
+} 
+
+</code></pre>
+<pre><code>6. 
+</code></pre>
+
+</body></html>

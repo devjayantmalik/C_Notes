@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>More on variables</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="More_on_Variables__0"></a>More on Variables :</h1>
+<h2><a id="How_much_memory_does_variable_reserve__2"></a>How much memory does variable reserve ?</h2>
+<pre><code>It depends on datatype of variable and Architecture of OS, few datatypes as per 16 bit OS are :
+1. int    - 2 bytes
+2. char   - 1 byte
+3. float  - 4 bytes
+4. double - 8 bytes
+</code></pre>
+<h2><a id="Using_sizeof_function__9"></a>Using sizeof() function :</h2>
+<pre><code>1. C provides us some predefined datatypes, such as int, float, char, double etc.
+2. These datatypes reserves different memory in RAM as per datatype.
+3. sizeof() function return int as return value in bytes.
+4. sizeof() function takes datatype as its argument.
+5. sizeof() function also takes variable_name as its argument.
+6. sizeof() function also takes direct value as its argument.
+</code></pre>
+<h2><a id="Example_of_sizeof_function__17"></a>Example of sizeof() function :</h2>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">int</span> age = <span class="hljs-number">18</span>;
+
+        <span class="hljs-comment">// size using variable.</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"int has size of %d bytes"</span>, <span class="hljs-keyword">sizeof</span>(age));
+        <span class="hljs-comment">// size using datatype</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"float has size of %d bytes"</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">float</span>));
+        <span class="hljs-comment">// size using value</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"char has size of %d bytes"</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-string">'A'</span>));
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h2><a id="Datatypes_in_C_32"></a>Datatypes in C:</h2>
+<pre><code>1. unsigned int
+2. signed int
+3. unsigned char
+4. signed char
+5. unsigned float
+6. signed float
+7. and few more..........
+</code></pre>
+<h2><a id="Note__41"></a>Note :</h2>
+<pre><code>1. unsigned allows only positive values.
+2. signed allows positive as well as negative values.
+</code></pre>
+<h2><a id="Memory_Allocation_for_signed_datatype__45"></a>Memory Allocation for signed datatype :</h2>
+<p>let’s assume the memory in form of blocks that are represented by square brackets [] .<br>
+so, memory becomes,<br>
+char = 1 byte = 8 bits  = <strong>[1][][][][][][][]</strong></p>
+<h4><a id="In_case_of_signed_datatypes__49"></a>In case of signed datatypes :</h4>
+<pre><code>    1. First most bit is reserved for signature info.
+    2. This first most bit is called as sign bit.
+    3. Sign bit holds two values : 0 for negative values.
+    4. and 1 for positive values.
+</code></pre>
+<h2><a id="Points_to_Remember__55"></a>Points to Remember :</h2>
+<pre><code>1. OS stores data in RAM in form of bits 0 or 1.
+2. Bits are states of current experienced by hardware.
+3. Memory or RAM is divided in bits.
+</code></pre>
+<h2><a id="Calculation_of_Size_and_range_of_values__60"></a>Calculation of Size and range of values :</h2>
+<h4><a id="Representation_of_memory_in_case_of_char_62"></a>Representation of memory in case of char:</h4>
+<pre><code>                [][][][][][][][]
+    1. Minimum binaries that 8 bits could hold is : 00000000
+    2. Maximum binaries that 8 bits could hold is : 11111111
+</code></pre>
+<h4><a id="Lets_check_binary__66"></a>Let’s check binary :</h4>
+<pre><code>1   | 00000001
+2   | 00000010
+....
+....
+255 | 11111111
+</code></pre>
+<blockquote>
+<p>Here, we notice that when number is converted in binary 255 is the maximum value that results in 11111111 which is equivalent to maximum storage reserved in RAM.</p>
+</blockquote>
+<h4><a id="How_will_i_convert_a_number_to_Binary__74"></a>How will i convert a number to Binary ?</h4>
+<pre><code>    255 /2 | 1
+    127 /2 | 1
+    063 /2 | 1
+    031 /2 | 1
+    015 /2 | 1
+    007 /2 | 1
+    003 /2 | 1
+    001 /2 | 1
+</code></pre>
+<blockquote>
+<p>Steps are :<br>
+1. Take any number that you want to convert. (255 in our example)<br>
+2. Divide the number by 2 and note its remainder and quotient as seen above.<br>
+3. Again divide the quotient by 2 until we get zero as quotient.<br>
+4. As a remainder we obtain binary of the number.</p>
+</blockquote>
+<h2><a id="Conclusion__89"></a>Conclusion :</h2>
+<pre><code>1. we learnt how to convert integer number to binary.
+2. now you can convert binary to number and find maximum range of variable.
+</code></pre>
+<h2><a id="Cyclic_behaviour__93"></a>Cyclic behaviour :</h2>
+<pre><code>1. Cyclic behaviour is used to determine value of variable that will be provided as result when user enters beyond variable's maximum range.
+2. Example signed char could hold values from -128 to 127.
+3. What happens when user enters 128
+4. Program shows cyclic behaviour.
+//figure of cyclic behaviour
+    (0) ---------- (127)
+     '               '
+     '               '
+     '               '
+    (-1) --------- (-128)
+
+So, as per the figure the result obtained will be -128
+</code></pre>
+<blockquote>
+<h4><a id="The_above_concept_of_cyclic_behaviour_applies_to_all_datatypes_in_c_107"></a>The above concept of cyclic behaviour applies to all datatypes in c.</h4>
+</blockquote>
+
+</body></html>

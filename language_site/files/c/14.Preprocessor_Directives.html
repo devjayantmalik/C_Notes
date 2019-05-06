@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Preprocessor Directives</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="Preprocessor_Directives__0"></a>Preprocessor Directives :</h1>
+<pre><code>Preprocessor directives are special kind of c statements, that are processed during compilation of c program.
+</code></pre>
+<h2><a id="Types_of_Preprocessor_directives__3"></a>Types of Preprocessor directives :</h2>
+<pre><code>1. File inclusion preprocessor
+2. Macro preprocessor
+3. Conditional preprocessor
+</code></pre>
+<h2><a id="Preprocessor__8"></a>Preprocessor :</h2>
+<pre><code>1. preprocessor tells compiler about some special kind of action to execute.
+2. preprocessor directives are started with # symbol.
+</code></pre>
+<h2><a id="File_inclusion_preprocessor__12"></a>File inclusion preprocessor :</h2>
+<pre><code>1. File inclusion preprocessor directives are used to include some other c file in our program code file.
+2. File inclusions are included using #include keyword.
+3. File inclusion preprocessor can be included in any scope (global or local).
+4. code from other file is copied in your main program file during compilation.
+</code></pre>
+<h2><a id="Syntax_of_file_inclusion_preprocessor__18"></a>Syntax of file inclusion preprocessor :</h2>
+<pre><code>#include&lt;filename&gt;  or
+#include &quot;filename&quot;
+</code></pre>
+<h2><a id="Difference_in_double_and_single_quotes_inclusions_22"></a>Difference in double and single quotes inclusions:</h2>
+<pre><code>1. &quot;&quot; are searches file in current directory and then searches in include directory (if not found in current path).
+2. &lt;&gt; searches file in include directory.
+</code></pre>
+<h2><a id="Rules_of_file_preprocessor__26"></a>Rules of file preprocessor :</h2>
+<pre><code>1. Single inclusion per line is allowed only.
+2. No two files can be included in single line.(others are discarded in any.)
+3. Semicolons are not used with file preprocessor.
+4. Absolute path can be used to include preprocessor. (/home/jayant/file.c)
+5. Short path is not allowed. (~/temp/file.c)
+</code></pre>
+<h2><a id="Why_to_use_preprocessor__33"></a>Why to use preprocessor :</h2>
+<pre><code>preprocessor are used to include instructions written in some other file into our main program file.
+</code></pre>
+<h2><a id="Errors_in_Preprocessors__36"></a>Errors in Preprocessors :</h2>
+<h3><a id="Program_1__37"></a>Program 1 :</h3>
+<pre><code class="language-c">    <span class="hljs-comment">//----------------------temp.c file----------------</span>
+    
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello from program.c"</span>);
+
+    <span class="hljs-comment">//----------------------program.c------------------</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">"temp.c"</span> // not allowed because only declarative statements are allowed in global scope.</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"in beginning of main...\n"</span>);
+        
+        <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;temp.c&gt;</span>    // error because file not present in</span>
+                         <span class="hljs-comment">// include directory.</span>
+
+        <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">"temp.c"</span> // replaced by printf(<span class="hljs-string">"Hello from program.c"</span>);</span>
+                        <span class="hljs-comment">// during compilation.</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h3><a id="Program_2__58"></a>Program 2 :</h3>
+<pre><code class="language-c">    <span class="hljs-comment">//--------------------temp.c---------------------</span>
+        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> num1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> * <span class="hljs-keyword">const</span> num2)</span></span>{
+            <span class="hljs-keyword">return</span> *num1 + *num2;
+        }
+
+
+    <span class="hljs-comment">//-------------------program.c------------------</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">"temp.c"</span></span>
+
+        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+            <span class="hljs-keyword">int</span> num1 = <span class="hljs-number">10</span>, num2 = <span class="hljs-number">20</span>;
+
+            <span class="hljs-keyword">int</span> result = sum(&amp;num1, &amp;num2);
+
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Result is %d\n"</span>,result);
+
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+
+</code></pre>
+<h2><a id="Conclusions_from_File_inclusion_preprocessor_80"></a>Conclusions from File inclusion preprocessor:</h2>
+<pre><code>1. keep scope of code in mind of temp.c file because code from temp.c file will be substituted in program.c file.
+2. use &quot;&quot; or &lt;&gt; syntax as per directory, which stores your .c file.
+</code></pre>
+<h2><a id="What_happens_during_compilation__84"></a>What happens during compilation :</h2>
+<pre><code>1. temp.c ------&gt;  compiler -----&gt; .obj file 
+2. program.c ----&gt; compiler -----&gt; .exe file / .out file
+</code></pre>
+<h2><a id="What_dennis_ritche_did__88"></a>What dennis ritche did :</h2>
+<pre><code>1. He wrote saveral .c files that contained his c code.
+2. He injected .obj file to .lib or .dll file.
+3. When compiler linker does its action during compilation time, then he checks .lib or .dll file..
+4. Now we uses printf function that is injected somewhere in .lib file.
+</code></pre>
+<h2><a id="Difference_between_dll_and_lib_file__94"></a>Difference between dll and lib file :</h2>
+<pre><code>1. Dll files load limited contents of code to memory as required by program.
+2. lib file loads all code to memory whether it is required or not.
+</code></pre>
+<h2><a id="How_to_inject_file_to_lib_or_dll_file_using_turboc__98"></a>How to inject file to .lib or .dll file using turboc++ ?</h2>
+<pre><code>1. Navigate to BIN directory.
+2. using tslib.exe inject .obj file to .lib file
+3. command : tslib ../lib/CS.lib + sample.obj
+</code></pre>
+<h1><a id="Header_Files_in_C__103"></a>Header Files in C :</h1>
+<pre><code>Now, We injected our .obj file to .lib file then, question arises how will user know what are functions defined in .lib file.
+
+Header files are simple text files with .h extension used to define function prototypes and macro definition.
+
+Header files are used to tell developer about which functions are declared in .lib file.
+
+Header files do not contain any program logic. it only contains function prototype which tells us few things :
+    1. Name of function
+    2. Return value of function
+    3. Inputs required by function.
+</code></pre>
+<h2><a id="Creating_a_header_file_sample_code_115"></a>Creating a header file (sample code):</h2>
+<pre><code>int cdecl sum(const int *num1, const int *num2);
+</code></pre>
+<h2><a id="Some_terms_in_header_file__118"></a>Some terms in header file :</h2>
+<pre><code>1. cdecl ---&gt; specifies that function was purely written in c language syntax. (c declarative)
+</code></pre>
+<h1><a id="Macro_Preprocessor__121"></a>Macro Preprocessor :</h1>
+<pre><code>Macro preprocessor is used to define a custom name for any operator or statement.
+
+it reduces duplicate code.
+
+it helps to call multiple statements of c using a single macro name.
+
+There is no stack formation in case of macro, these are c statements that are replaced in code during compilation with their values.
+</code></pre>
+<h2><a id="Syntax_to_declare_macro__130"></a>Syntax to declare macro :</h2>
+<pre><code>#define macro_name value_or_statements
+</code></pre>
+<h2><a id="Example_of_macro__133"></a>Example of macro :</h2>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> PI <span class="hljs-number">3.14</span></span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> NAME printf(<span class="hljs-string">"Hello"</span>); printf(<span class="hljs-string">"Jayant"</span>);</span>
+</code></pre>
+<h2><a id="Types_of_MACROS__138"></a>Types of MACROS :</h2>
+<pre><code>1. Simple Macro without Argument.
+    it do not have any arguments as functions have.
+2. Argument Macro
+    it has arguments that are replaced by values.
+</code></pre>
+<h2><a id="Example_of_Simple_Macro__144"></a>Example of Simple Macro :</h2>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> PI <span class="hljs-number">3.14</span></span>
+
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> Age <span class="hljs-number">20</span></span>
+</code></pre>
+<h2><a id="Syntax_of_Argument_Macro__150"></a>Syntax of Argument Macro :</h2>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> sum(x,y) x+y</span>
+
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> multiply(a,b) a*b</span>
+</code></pre>
+<blockquote>
+<h2><a id="Note__In_case_of_argument_macro_there_is_no_formation_of_stack_156"></a>Note : In case of argument macro there is no formation of stack.</h2>
+</blockquote>
+<h2><a id="Example_of_Macro__158"></a>Example of Macro :</h2>
+<h3><a id="Program_1__160"></a>Program 1 :</h3>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> PI <span class="hljs-number">3.14</span></span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">int</span> pi_square = PI * PI;    <span class="hljs-comment">//int pi_square = 3.14 * 3.14;</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"value of PI is %f\n"</span>,pi_square); 
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h3><a id="Program_2__171"></a>Program 2 :</h3>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> AND &amp;&amp;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">int</span> age = <span class="hljs-number">10</span>;
+
+        <span class="hljs-keyword">if</span>( (age &gt; <span class="hljs-number">5</span>) AND (age &lt; <span class="hljs-number">19</span>))
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Congrats you won a laptop.\n"</span>);
+
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"You won a titanic ship.\n"</span>);
+
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h3><a id="Program_3__188"></a>Program 3 :</h3>
+<pre><code class="language-c">    <span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> sum(a,b) a+b</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> first, second;
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter first number:\t"</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%Le"</span>,&amp;first);    <span class="hljs-comment">// 10</span>
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter second number:\t"</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%Le"</span>,&amp;second);   <span class="hljs-comment">// 20</span>
+
+        <span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> result = sum(first,second); <span class="hljs-comment">// int result = 10 + 20 ;</span>
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Result is %Lf\n"</span>,result); <span class="hljs-comment">//result = 30</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+
+</body></html>

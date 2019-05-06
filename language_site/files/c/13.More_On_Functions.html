@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>More on Functions</title><style>@import "style.css"</style></head><body id="preview">
+<h1><a id="More_on_Functions__0"></a>More on Functions :</h1>
+<h2><a id="Stack_Concept__2"></a>Stack Concept :</h2>
+<pre><code>1. STACK is a part in RAM reserved by OS to keep account of program.
+2. OS manages program execution with the help of STACK.
+3. OS stores program execution in STACK.
+4. Top most stack section is always executed first.
+5. Once a function execution finishes STACK memory is cleaned for that specific function (removal is called as pop)
+</code></pre>
+<h2><a id="Concept_of_STACK_with_function_calls__9"></a>Concept of STACK with function calls :</h2>
+<pre><code>1. Best way to understand the concept is to see it in action.
+</code></pre>
+<h4><a id="Example__11"></a>Example :</h4>
+<pre><code class="language-c">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">max</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+        <span class="hljs-keyword">return</span> (a &gt;b) ? a : b;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">int</span> firstNumber  = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> SecondNumber = <span class="hljs-number">0</span>;
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter First Number: "</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;firstNumber);
+        
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter Second Number: "</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;secondNumber);
+
+        <span class="hljs-keyword">int</span> result = max(firstNumber, secondNumber);
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Maximum of %d and %d is : %d\n"</span>,firstNumber,secondNumber,result);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<h4><a id="Steps_of_Execution_are__34"></a>Steps of Execution are :</h4>
+<pre><code>1. Main function is loaded in STACK.
+2. Local variables are created in STACK.
+3. Value is assigned to local variables.
+4. Value of address from where program left execution is stored in register.
+5. For printf seperate STACK section is created, because it is a function.
+6. Now printf execution completed, so STACK memory for printf is popped.
+7. Again program continues execution from main function.
+8. scanf is a function so, seperate STACK section is created for it.
+9. scanf execution completes with some value assigned to variable, so STACK memory is popped again.
+10. Steps 4 to 9 repeats again for second number input.
+11. Program Execution leaving address is again stored in STACK or register.(but for now say stack)
+12. Now max function is created in STACK, with two variables a and b.
+13. Values from main function are copied in max function.
+14. Program calculates result based on condition.
+15. Value is returned to main function and STACK is popped.
+16. and so on...... the process continues till end of program.
+</code></pre>
+<blockquote>
+<h3><a id="Note__Only_USERDEFINED_functions_are_shown_in_images_52"></a>Note : Only USER-DEFINED functions are shown in images.</h3>
+<h1><a id="Add_image_here_53"></a>//Add image here.</h1>
+</blockquote>
+<h2><a id="Why_is_main_function_declared_with_int_return_type_55"></a>Why is main function declared with int return type?</h2>
+<pre><code>- Every program has to return some value back to Operating System
+- This information is stored in a variable, named errorlevel (in case of windows only)
+- View info of this variable using : echo %errorlevel% (on windows)
+- view info of this variable using : echo $? (on linux)
+</code></pre>
+</body></html>
